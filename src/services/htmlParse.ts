@@ -15,8 +15,6 @@ async function getGroup(validData: TypeValidData) {
 
     const scriptText = scriptTag.text()
 
-    console.log(scriptText)
-
     const regex = /const\s+classificacao\s*=\s*({[^;]+});/s
 
     const match = scriptText.match(regex)
