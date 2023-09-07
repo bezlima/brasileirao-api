@@ -11,12 +11,15 @@ let corsOptions = {
     optionsSuccessStatus: 200,
 }
 
+app.use(express.static('public'))
+
 app.use(express.json())
 app.use(cors(corsOptions))
 app.use(tableRoute)
 
+app.set('view engine', 'ejs')
 app.get('/', (req: Request, res: Response) => {
-    res.json({ message: 'hello world with Typescript' })
+    res.sendFile(__dirname + '/public/home.html')
 })
 
-app.listen(PORT, () => `server running on port ${PORT}`)
+app.listen(PORT, () => console.log(`server running on port http://localhost:${PORT}`))
