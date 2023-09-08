@@ -1,12 +1,15 @@
 import axios from 'axios'
 const { BaseURL } = require('./baseURL')
 const cheerio = require('cheerio')
+const sleep = require('./sleep')
 
 interface TypeValidData {
     serie: string
 }
 
 async function getGroup(validData: TypeValidData) {
+    await sleep(2000)
+
     const getHTML = await axios.get(BaseURL(validData.serie))
 
     const $ = cheerio.load(getHTML.data)
