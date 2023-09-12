@@ -11,8 +11,6 @@ async function getTableController(req: express.Request, res: express.Response) {
 
         const cachedData = cache.get(`${cacheKey}_${requisition.serie}`)
 
-        console.log(`${cacheKey}_${requisition.serie}`)
-
         if (cachedData) {
             return res.status(200).send(cachedData)
         } else {
